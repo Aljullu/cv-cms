@@ -216,7 +216,11 @@ class profile {
                 if ($location[0] != "") {
                     $text .= "<p class='city-wrapper'><span class='city-label'>".$location[0]."</span><span class='city'>".$location[1]."</span></p>";
                 }
-                $text .= "<p class='period-wrapper'><span class='period-label'>Period</span><span class='period'>".format_dates($job['start_date'], $job['finish_date'])."</span></p>";
+                if ($job['start_date'] !== $job['finish_date']) {
+                  $text .= "<p class='period-wrapper'><span class='period-label'>" . __("Period") . "</span><span class='period'>".format_dates($job['start_date'], $job['finish_date'])."</span></p>";
+                } else {
+                  $text .= "<p class='period-wrapper'><span class='period-label'>" . __("Date") . "</span><span class='period'>".format_date($job['start_date'])."</span></p>";
+                }
 				$text .= "<div class='job-description'>".$job['description']."</div>";
 				$text .= "</div>";
 			}
@@ -262,7 +266,11 @@ class profile {
                 if ($location[0] != "") {
                     $text .= "<p class='city-wrapper'><span class='city-label'>".$location[0]."</span><span class='city'>".$location[1]."</span></p>";
                 }
-                $text .= "<p class='period-wrapper'><span class='period-label'>Period</span><span class='period'>".format_dates($job['start_date'], $job['finish_date'])."</span></p>";
+                if ($job['start_date'] !== $job['finish_date']) {
+                  $text .= "<p class='period-wrapper'><span class='period-label'>" . __("Period") . "</span><span class='period'>".format_dates($job['start_date'], $job['finish_date'])."</span></p>";
+                } else {
+                  $text .= "<p class='period-wrapper'><span class='period-label'>" . __("Date") . "</span><span class='period'>".format_date($job['start_date'])."</span></p>";
+                }
 				$text .= $job['description'];
 				$text .= "</div>";
 			}
