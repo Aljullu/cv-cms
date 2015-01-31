@@ -241,6 +241,14 @@ class profile {
         return $this->print_experience(0);
     }
     
+    function print_volunteer_professional_experience() {
+        return $this->print_experience(1,0);
+    }
+    
+    function print_volunteer_not_professional_experience() {
+        return $this->print_experience(1,1);
+    }
+    
     function print_volunteer_experience() {
         return $this->print_experience(1);
     }

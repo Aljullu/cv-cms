@@ -21,8 +21,8 @@ function getPath() {
 
 function replace_tokens($string) {
     global $my_profile;
-    $tokens = array("[display_name]","[opinions]","[experience]","[work_experience]","[work_professional_experience]","[work_not_professional_experience]","[volunteer_experience]","[education]","[portfolio]","[social-networks]","[portfolio]","[languages]","[slideshow-script]");
-    $replacements = array($my_profile->get_name(), $my_profile->print_opinions(), $my_profile->print_experience(), $my_profile->print_work_experience(), $my_profile->print_work_professional_experience(), $my_profile->print_work_not_professional_experience(), $my_profile->print_volunteer_experience(), $my_profile->print_education(), $my_profile->print_portfolio(), $my_profile->print_social_networks(), $my_profile->print_portfolio(), $my_profile->print_languages(), get_slideshow_script());
+    $tokens = array("[display_name]","[opinions]","[experience]","[work_experience]","[work_professional_experience]","[work_not_professional_experience]","[volunteer_experience]","[volunteer_professional_experience]","[volunteer_not_professional_experience]","[education]","[portfolio]","[social-networks]","[portfolio]","[languages]","[slideshow-script]");
+    $replacements = array($my_profile->get_name(), $my_profile->print_opinions(), $my_profile->print_experience(), $my_profile->print_work_experience(), $my_profile->print_work_professional_experience(), $my_profile->print_work_not_professional_experience(), $my_profile->print_volunteer_experience(), $my_profile->print_volunteer_professional_experience(), $my_profile->print_volunteer_not_professional_experience(), $my_profile->print_education(), $my_profile->print_portfolio(), $my_profile->print_social_networks(), $my_profile->print_portfolio(), $my_profile->print_languages(), get_slideshow_script());
     return str_replace($tokens,$replacements,$string);
 }
 
