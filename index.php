@@ -109,6 +109,7 @@ if ($my_profile->get_number_of_opinions() > 0) {
 $(document).ready(function (){
     // Menu
 	$(".scroll").click(function(event) {
+		ga('send', 'event', 'navigation', 'topmenu');
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top-$("#top-menu").height()-20}, 500);
 	});
