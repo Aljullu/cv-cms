@@ -258,8 +258,6 @@ span[lang="en"] {
 #face img {
   background: #fff;
   box-shadow: 3px 3px 10px #666;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
   margin: 0;
   padding: 5px;
   transform: rotate(10deg);
@@ -285,8 +283,6 @@ span[lang="en"] {
   box-shadow: 3px 3px 10px #444;
   transform: rotate(0);
   transition: all .5s;
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
 }
 
 #face:hover > p {
@@ -719,13 +715,6 @@ div[itemtype="http://data-vocabulary.org/Review"] {
 
 .contact-wrapper .contact-button {
   background: rgb(188, 95, 62);
-  /* Old browsers */
-  
-  background: -moz-linear-gradient(top, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(188, 95, 62, 1)), color-stop(100%, rgba(189, 80, 40, 1)));
-  background: -webkit-linear-gradient(top, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
-  background: -o-linear-gradient(top, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
-  background: -ms-linear-gradient(top, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
   background: linear-gradient(to bottom, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
   border: 1px solid #A55324;
   border-radius: 3px;

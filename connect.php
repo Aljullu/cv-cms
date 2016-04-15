@@ -1,4 +1,5 @@
 <?php
+$lang = 'en';
 // Database connection
 $con=mysqli_connect("SERVER", "USER", "PASSWORD", "DATABASE");
 if (mysqli_connect_errno())

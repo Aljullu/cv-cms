@@ -1,8 +1,13 @@
 <?php
 include 'profile.php';
 
+global $lang;
+
 // Parsing text funcions
-function __ ($string) {
+function __($string) {
+    if ($string === 'Load more opinions' && $lang === 'ca') {
+        return 'Mostra més opinions';
+    }
     return $string;
 }
 

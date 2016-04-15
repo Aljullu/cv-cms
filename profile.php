@@ -157,7 +157,22 @@ class profile {
                             $parsed_date['day'], 
                             $parsed_date['year']
                         );
-	                    $text .= "<p class='autor'><a href='". $opinion['reviewer_url'] ."' itemprop='reviewer'>". $opinion['reviewer'] ."</a>, <em>" . $opinion['reviewer_title'] . "</em> — <a href='" . $opinion['source_url'] . "'><time itemprop='dtreviewed' datetime='". $opinion['date'] ."'>". date("j/n/Y",$date) ."</time></a>";
+	                    $text .= "<p class='autor'>";
+						if ($opinion['reviewer_url']) {
+						    $text .= "<a href='". $opinion['reviewer_url'] ."' itemprop='reviewer'>". $opinion['reviewer'] ."</a>";
+						} else {
+						    $text .= "<span itemprop='reviewer'>". $opinion['reviewer'] ."</span>";
+						}
+						if ($opinion['reviewer_title']) {
+						    $text .= ", ";
+						    $text .= "<em>" . $opinion['reviewer_title'] . "</em>";
+						}
+						$text .= " — ";
+						if ($opinion['source_url']) {
+						    $text .= "<a href='" . $opinion['source_url'] . "'><time itemprop='dtreviewed' datetime='". $opinion['date'] ."'>". date("j/n/Y",$date) ."</time></a>";
+						} else {
+						    $text .= "<time itemprop='dtreviewed' datetime='". $opinion['date'] ."'>". date("j/n/Y",$date) ."</time>";
+						}
                         if ($opinion['rating'] > 0) {
                             $text .= "(<span itemprop='rating'>". $opinion['rating'] ."</span>/<span itemprop='best'>10</span>)";
                         }
@@ -166,11 +181,11 @@ class profile {
             }
         }
         $result = mysqli_query($con,"SELECT COUNT(*) AS count, AVG(rating) AS rating FROM opinions WHERE aproved = 1 AND pid = ". $this->id ." ORDER BY date DESC");
-        /*if ($result) {
+        if ($result) {
             $opinions_numbers = mysqli_fetch_array($result);
             
-            $text .= "<p><a id='show-more-opinions' title='Mostra més opinions' href='javascript:void(0)'>Mostra més opinions</a><span class='separator'> | </span><span itemprop='votes count'>". $opinions_numbers['count'] ."</span> opinions <span itemprop='rating' itemscope itemtype='http://data-vocabulary.org/Rating'>(<span itemprop='average'>". round(100*$opinions_numbers['rating'])/100 ."</span>/<span itemprop='best'>10</span>)</span></p>";
-        }*/
+            $text .= "<p><a id='show-more-opinions' title='" . __('Load more opinions') . "' href='javascript:void(0)'>Mostra més opinions</a><span class='separator'> | </span><span itemprop='votes count'>". $opinions_numbers['count'] ."</span> opinions <span itemprop='rating' itemscope itemtype='http://data-vocabulary.org/Rating'>(<span itemprop='average'>". round(100*$opinions_numbers['rating'])/100 ."</span>/<span itemprop='best'>10</span>)</span></p>";
+        }
         
         return $text;
     }
