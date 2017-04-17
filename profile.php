@@ -330,6 +330,12 @@ class profile {
                 if (strpos($social_network["url"], "stackexchange.com")) {
                     $text .= "<li><a href='".$social_network["url"]."' title='Stack Exchange' class='not-styled'><i class='fa fa-stack-exchange' aria-hidden='true'></i></a></li>";
                 }
+                if (strpos($social_network["url"], "medium.com")) {
+                    $text .= "<li><a href='".$social_network["url"]."' title='Medium' class='not-styled'><i class='fa fa-medium' aria-hidden='true'></i></a></li>";
+                }
+                if (strpos($social_network["url"], "bugzilla.mozilla.org")) {
+                    $text .= "<li><a href='".$social_network["url"]."' title='Mozilla' class='not-styled'><i class='fa fa-firefox' aria-hidden='true'></i></a></li>";
+                }
             }
             $text .= "</ul>";
         }
