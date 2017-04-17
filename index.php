@@ -22,6 +22,18 @@ if ($my_profile->get_number_of_opinions() > 0) {
     <meta name="description" content="<?php echo replace_tokens($my_profile->description); ?>" />
     <title><?php echo replace_tokens($my_profile->title); ?></title>
 	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+	<script>
+	jQuery(window).scroll(function() {
+        jQuery('.analytics-scroll').each(function() {
+            var $this = jQuery(this);
+            if ($this.position().top + $this.outerHeight() < jQuery(document).scrollTop() + jQuery(window).height()) {
+                var id = $this.attr('id');
+                ga('send', 'event', 'page_scroll', id, null);
+                $this.removeClass('analytics-scroll');
+            }
+        });
+	});
+	</script>
 	<div id="wrapper" class="vcard" <?php if ($reviewable) echo 'itemscope itemtype="http://data-vocabulary.org/Review-aggregate"'; ?>>
         <nav id="top-menu">
             <ul>

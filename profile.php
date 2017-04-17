@@ -107,7 +107,7 @@ class profile {
         global $con;
         $result = mysqli_query($con,"SELECT display_title, title, machine_title, body FROM profile_blocks WHERE pid = ".$this->id ." AND zone LIKE '".$zone."' ORDER BY weight");
         while($row = mysqli_fetch_array($result)) {
-        	$text .= "<section id='".$row['machine_title']."-section'>";
+            $text .= "<section id='".$row['machine_title']."-section' class='analytics-scroll'>";
             if ($row['display_title']) {
                 $text .= "<h2 id='".$row['machine_title']."'>".$row['title']."</h2>";
             }
