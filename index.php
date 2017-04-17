@@ -138,9 +138,6 @@ $(document).scroll(function (){
     else {
         $("#top-menu").removeClass("scrolled");
     }
-
-	// Superawesome parallax effect!
-	$("body").css("background-position", "0 " + $(document).scrollTop()/1.5 + "px");
 });
 </script>
 <?php
