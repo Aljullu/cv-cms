@@ -142,12 +142,9 @@ span[lang="en"] {
   font-style: italic;
 }
 
-#top-menu .icon-home {
-  font-size: 2em;
-  line-height: 0;
-  position: relative;
-  top: 5px;
-  text-decoration: none;
+#top-menu .home {
+  font-size: 1.8rem;
+  vertical-align: middle;
 }
 
 #top-menu {
@@ -292,7 +289,7 @@ span[lang="en"] {
 }
 
 #social-networks {
-  font-size: 3em;
+  font-size: 2.5em;
   padding: 0;
   text-align: center;
 }
@@ -303,17 +300,18 @@ span[lang="en"] {
   display: inline-block;
   height: 1em;
   line-height: 1em;
-  margin: 0 .1em;
+  margin: .1em .1em;
+  padding: 0.1em;
   transform: rotate(10deg);
   transition: background .5s, transform .25s;
   width: 1em;
 }
 
-#social-networks > li:first-child {
+#social-networks > li:nth-child(3n + 1) {
   margin-left: 0;
 }
 
-#social-networks > li:last-child {
+#social-networks > li:nth-child(3n + 3) {
   margin-right: 0;
 }
 

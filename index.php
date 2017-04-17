@@ -14,7 +14,7 @@ if ($my_profile->get_number_of_opinions() > 0) {
 <html lang="<?php echo $my_profile->language; ?>" class="<?php echo $my_profile->uri; ?>">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700%7CArvo:400,700' rel='stylesheet'>
 	<?php $my_profile->print_styles(); ?>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.png" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -29,7 +29,7 @@ if ($my_profile->get_number_of_opinions() > 0) {
 	                $array = $my_profile->get_block_titles("body");
 	                
 	                if (count($array) > 3) { // Display menu only if there are more than 3 sections
-	                    echo '<li><a href="#wrapper" class="scroll home"><i class="icon-home"></i></a>';
+	                    echo '<li><a href="#wrapper" class="scroll home"><i class="fa fa-home" aria-hidden="true"></i></a>';
 	                    foreach ($array as $item) {
 	                        echo '<li><a href="#'.$item['machine_title'].'" class="scroll">'.$item['title'].'</a>';
 	                    }

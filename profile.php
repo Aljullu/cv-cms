@@ -44,7 +44,7 @@ class profile {
     }
     
     function print_phone() {
-        echo "<a class='tel' href='tel:".$this->format_phone("plain")."'><i class='icon-phone'></i>".$this->format_phone("styled")."</a>";
+        echo "<a class='tel' href='tel:".$this->format_phone("plain")."'><i class='fa fa-phone' aria-hidden='true'></i>".$this->format_phone("styled")."</a>";
     }
         
     function format_phone($style = "default") {
@@ -313,22 +313,22 @@ class profile {
             $text .= "<ul id='social-networks'>";
             while($social_network = mysqli_fetch_array($result)) {
                 if (strpos($social_network["url"], "linkedin")) {
-                    $text .= "<li><a href='".$social_network["url"]."' title='LinkedIn' class='not-styled'><i class='icon-linkedin'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."' title='LinkedIn' class='not-styled'><i class='fa fa-linkedin' aria-hidden='true'></i></a></li>";
                 }
                 if (strpos($social_network["url"], "twitter")) {
-                    $text .= "<li><a href='".$social_network["url"]."' title='Twitter' class='not-styled'><i class='icon-twitter'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."' title='Twitter' class='not-styled'><i class='fa fa-twitter' aria-hidden='true'></i></a></li>";
                 }
                 if (strpos($social_network["url"], "facebook")) {
-                    $text .= "<li><a href='".$social_network["url"]."' title='Facebook' class='not-styled'><i class='icon-facebook'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."' title='Facebook' class='not-styled'><i class='fa fa-facebook' aria-hidden='true'></i></a></li>";
                 }
                 if (strpos($social_network["url"], "github")) {
-                    $text .= "<li><a href='".$social_network["url"]."' title='GitHub' class='not-styled'><i class='icon-github'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."' title='GitHub' class='not-styled'><i class='fa fa-github' aria-hidden='true'></i></a></li>";
                 }
                 if (strpos($social_network["url"], "plus.google")) {
-                    $text .= "<li><a href='".$social_network["url"]."?rel=author' title='Google+' class='not-styled'><i class='icon-google-plus'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."?rel=author' title='Google+' class='not-styled'><i class='fa fa-google-plus' aria-hidden='true'></i></a></li>";
                 }
                 if (strpos($social_network["url"], "stackexchange.com")) {
-                    $text .= "<li><a href='".$social_network["url"]."' title='Stack Exchange' class='not-styled'><i class='icon-stackexchange'></i></a></li>";
+                    $text .= "<li><a href='".$social_network["url"]."' title='Stack Exchange' class='not-styled'><i class='fa fa-stack-exchange' aria-hidden='true'></i></a></li>";
                 }
             }
             $text .= "</ul>";
@@ -357,28 +357,28 @@ class profile {
             }
             $text .= "</ul>";
         }
-        
+
         $text .= get_slideshow_script();
-        
+
         // List of links
         $result = mysqli_query($con,"SELECT portfolio_category_id, name FROM profile_portfolio_categories ORDER BY weight");
 
         if ($result) {
             $text .= "<ul>";
-            
+
             while($category = mysqli_fetch_array($result)) {
-		        
+
 		        $result2 = mysqli_query($con,"SELECT name, long_description, link, link_android, link_ios, link_firefox_os, link_windows_phone, link_github FROM profile_portfolio WHERE pid = ". $this->id ." AND visible = true AND category = ".$category['portfolio_category_id']." ORDER BY weight");
-		        
+
             	$text .= "<li>".$category['name']."<ul>";
-            	
+
             	if ($result2) {
 		        	while($item = mysqli_fetch_array($result2)) {
 			        	// Print name
 		        		$text .= '<li itemscope itemtype="http://schema.org/SoftwareApplication"><a href="'.$item["link"].'" itemprop="url"><span itemprop="name">'.$item["name"].'</span></a>';
 		        		// Print github link
 		        		if ($item["link_github"]) {
-		        		 $text .= ' <a href="'.$item["link_github"].'" title="Fork me on Github"><i class="icon-github"></i></a>';
+		        		 $text .= ' <a href="'.$item["link_github"].'" title="Fork me on Github"><i class="fa fa-github" aria-hidden="true"></i></a>';
 		        		}
 		        		// Print description
 		        		$text .= ': <span itemprop="description">'.$item["long_description"].'</span>';
