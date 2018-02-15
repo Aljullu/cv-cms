@@ -57,6 +57,11 @@ h2 {
   margin: 30px 0 .5em;
 }
 
+.section-title {
+  margin: -90px 0 0;
+  padding: 120px 0 .5em;
+}
+
 a,
 h3,
 h4,
@@ -121,6 +126,11 @@ p.footer-note::before {
 
 html {
   min-height: 100%;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -399,13 +409,11 @@ span[lang="en"] {
 }
 
 .slideshow-big-image {
-  -webkit-filter: blur(50px);
   filter: blur(50px);
   transition: filter 5s;
 }
 
 .slideshow-big-image.active {
-  -webkit-filter: blur(0);
   filter: blur(0);
 }
 
@@ -712,7 +720,6 @@ div[itemtype="http://data-vocabulary.org/Review"] {
 }
 
 .contact-wrapper .contact-button {
-  background: rgb(188, 95, 62);
   background: linear-gradient(to bottom, rgba(188, 95, 62, 1) 0%, rgba(189, 80, 40, 1) 100%);
   border: 1px solid #A55324;
   border-radius: 3px;
