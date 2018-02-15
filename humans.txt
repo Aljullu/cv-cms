@@ -1,6 +1,6 @@
 /* MAIN */
-  Develop & Main Design: Albert Juhé Lluveras
+  Development & Main Design: Albert Juhé Lluveras
   Twitter: @aljullu
-  Site: http://www.albertjuhe.com/
+  Site: https://www.albertjuhe.com/
   Contact: aljullu [at] gmail.com
-  From:Barcelona, Catalonia, Spain
+  From: Barcelona, Catalonia
