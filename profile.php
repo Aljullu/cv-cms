@@ -36,13 +36,13 @@ class profile
 
     public function print_styles()
     {
-        echo '<link href="'. getPath() .'/style.css" rel="stylesheet">';
+        echo '<link href="'. get_path() .'/style.css" rel="stylesheet">';
 
         global $con;
         $result = mysqli_query($con, "SELECT css FROM css WHERE pid = ".$this->id ."");
 
         while ($row = mysqli_fetch_array($result)) {
-            echo '<link href="'. getPath() .'/'.$row['css'].'" rel="stylesheet">';
+            echo '<link href="'. get_path() .'/'.$row['css'].'" rel="stylesheet">';
         }
     }
 

@@ -18,7 +18,7 @@ function compress($string)
     return $string;
 }
 
-function getPath()
+function get_path()
 {
     global $con;
     $result = mysqli_query($con, "SELECT path FROM settings");
@@ -43,13 +43,15 @@ function createProfile($uri = "")
     $my_profile = new profile();
 
     if ($uri == "") {
-        $result = mysqli_query($con, "SELECT uri_pos FROM settings");
+        $result = mysqli_query($con, "SELECT get_profile_uri_from, default_profile FROM settings");
         $row = mysqli_fetch_array($result);
 
-        if ($row["uri_pos"] == 0) { // get uri from domain
+        if ($row["get_profile_uri_from"] == "settings") {
+            $my_profile->uri = $row["default_profile"];
+        } else if ($row["get_profile_uri_from"] == "domain") {
             $server_name = explode(".", $_SERVER['SERVER_NAME']);
             $my_profile->uri = $server_name[1];
-        } else { // get uri from subdirectory
+        } else if ($row["get_profile_uri_from"] == "subdirectory") {
             $request_uri = explode('/', $_SERVER['REQUEST_URI']);
             $request_uri_b = explode('?', trim($request_uri[2], '/'));
             $my_profile->uri = trim($request_uri_b[0], '/');
