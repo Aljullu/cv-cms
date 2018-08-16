@@ -11,8 +11,7 @@ if ($my_profile->get_number_of_opinions() > 0) {
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $my_profile->language; ?>" class="<?php echo $my_profile->uri; ?>">
-	<?php $my_profile->print_styles(); ?>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <?php $my_profile->print_styles(); ?>
   <link rel="shortcut icon" href="/favicon.png" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -148,6 +147,7 @@ const observer = new IntersectionObserver(handler);
 const analyticsScroll = document.querySelectorAll('.analytics-scroll');
 analyticsScroll.forEach(analyticsScrollSection => observer.observe(analyticsScrollSection));
 </script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <?php
 close_connection();
 ?>
